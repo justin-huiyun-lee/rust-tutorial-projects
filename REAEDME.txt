@@ -1,4 +1,0 @@
-This is a repository for me to practice rust - there will be a bunch of folders with projects that I either copied from the internet or made myself as a learning
-personal project. 
-
-Don't expect much though. 

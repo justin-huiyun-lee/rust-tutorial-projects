@@ -1,24 +1,24 @@
-struct User {
-    email: String,
-    active: bool,
-    sign_in_count: u32,
-    username: String,
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
 }
 
 fn main() {
-    let user1 = User {
-        email: String::from("hello@example.com"),
-        active: true,
-        sign_in_count: 1,
-        username: String::from("Lebron James"),
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
     };
 
-    // --snip--
-    let user2 = User {
-        email: String::from("another@example.com"),
-        ..user1
-    };
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(&rect1)
+    );
 
-    println!("{}", user2.email);
+    println!("{:#?}", rect1);
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
 

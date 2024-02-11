@@ -18,7 +18,7 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
-        
+
         println!("You Guessed {}", guess);
 
         match guess.cmp(&secret_number) {

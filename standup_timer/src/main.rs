@@ -1,20 +1,32 @@
 use std::io::BufReader;
+use std::io::stdin;
+
 use std::thread;
 use std::time::Duration;
 
+// This is to change the amount of time I have to wait when its time to debug.
+const DBG_MODE: bool = true;
+
 fn main() {
-    // This is to change the amount of time I have to wait when its time to debug.
-    let dbg_mode: bool = false;
 
-    // This is to alternate between work and stand time.
-    let mut alternator = true;
+    let mut timer_start_decision = String::new();
+    let mut add_tasks_decision = String::new();
 
+    loop {
+
+    }
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
-    let mut seconds = if dbg_mode {
+    enter_loop();
+}
+
+fn enter_loop() {
+    let mut seconds = if DBG_MODE {
         Duration::from_secs(5)
     } else {
         Duration::from_secs(900)
     };
+    // This is to alternate between work and stand time.
+    let mut alternator = true;
 
     loop {
         thread::sleep(seconds.clone());
@@ -34,13 +46,13 @@ fn main() {
 
         // seconds alternates between dbg -> 2 and 5 seconds, perf -> 15 seconds and 15 mins.
         seconds = if alternator {
-            if dbg_mode {
+            if DBG_MODE {
                 Duration::from_secs(2)
             } else {
                 Duration::from_secs(15)
             }
         } else {
-            if dbg_mode {
+            if DBG_MODE {
                 Duration::from_secs(5)
             } else {
                 Duration::from_secs(900)
@@ -108,7 +120,7 @@ fn main() {
     }
 }
 
-fn enter_loop(dbg_mode: bool) {
+fn enter_loop(DBG_MODE: bool) {
     // After 20 iterations ( 10 work times ) of the loop, I will get a 30 min break.
     // This is 30 mins of break every 2.5 hours of work.
     let mut until_long_break: i8 = 20;
@@ -117,7 +129,7 @@ fn enter_loop(dbg_mode: bool) {
     let mut alternator = true;
 
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
-    let mut seconds = if dbg_mode {
+    let mut seconds = if DBG_MODE {
         Duration::from_secs(5)
     } else {
         Duration::from_secs(900)
@@ -149,13 +161,13 @@ fn enter_loop(dbg_mode: bool) {
 
         // seconds alternates between dbg -> 2 and 5 seconds, perf -> 15 seconds and 15 mins.
         seconds = if alternator {
-            if dbg_mode {
+            if DBG_MODE {
                 Duration::from_secs(2)
             } else {
                 Duration::from_secs(15)
             }
         } else {
-            if dbg_mode {
+            if DBG_MODE {
                 Duration::from_secs(5)
             } else {
                 Duration::from_secs(900)
@@ -166,7 +178,7 @@ fn enter_loop(dbg_mode: bool) {
         // 10 secs at debug and 30 mins at performance.
         if until_long_break <= 0 {
             until_long_break = 20;
-            seconds = if dbg_mode {
+            seconds = if DBG_MODE {
                 Duration::from_secs(10)
             } else {
                 Duration::from_secs(1800)

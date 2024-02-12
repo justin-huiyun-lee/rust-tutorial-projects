@@ -4,7 +4,7 @@ use std::time::Duration;
 
 fn main() {
     // This is to change the amount of time I have to wait when its time to debug.
-    let dbg_mode: bool = true;
+    let dbg_mode: bool = false;
 
     // This is to alternate between work and stand time.
     let mut alternator = true;

@@ -7,11 +7,11 @@ use std::io::stdin;
 fn main() {
 
     // This is to change the amount of time I have to wait when its time to debug.
-    let debug_mode: bool = false;
+    let debug_mode: bool = true;
 
     // These will either be y or n.
-    let mut timer_start_decision: char;
-    let mut add_tasks: char;
+    let mut timer_start_decision = String::new();
+    let mut add_tasks = String::new();
 
     
     loop {
@@ -20,18 +20,19 @@ fn main() {
 
         stdin()
             .read_line(&mut add_tasks)
-            .expects("Failed to read line - 24");
+            .expect("Failed to read line - 24");
 
-        if add_tasks == 'y' {
+        if add_tasks == "y" {
             todo!(" Adding tasks ");
         } else {
             println!("Start work? (y/n)");
             stdin()
                 .read_line(&mut timer_start_decision)
-                .expects("Failed to read line - 32");
+                .expect("Failed to read line - 32");
 
-            if timer_start_decision == 'y' {
+            if timer_start_decision == "y" {
                 enter_loop(debug_mode);
+                break;
             } else {
                 continue;
             }
@@ -44,7 +45,7 @@ fn main() {
         
 }
 
-fn enter_loop(dbg_mode: &bool) {
+fn enter_loop(dbg_mode: bool) {
 
     // After 20 iterations ( 10 work times ) of the loop, I will get a 30 min break.
     // This is 30 mins of break every 2.5 hours of work. 
@@ -54,19 +55,12 @@ fn enter_loop(dbg_mode: &bool) {
     let mut alternator = true;
     
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
-    let mut seconds = if debug_mode {
+    let mut seconds = if dbg_mode {
         Duration::from_secs(5)
     } else {
         Duration::from_secs(900)
-    }
-
-    // length of long break in seconds, 10 seconds at debug, 30 mins at performance
-    let mut long_break = if dbg_mode {
-        Duration::from_secs(10)
-    } else {
-        Duration::from_secs(1800)
     };
-    
+
     loop {
         thread::sleep(seconds.clone());
 

@@ -2,6 +2,77 @@ use std::io::BufReader;
 use std::thread;
 use std::time::Duration;
 
+fn main() {
+    // This is to change the amount of time I have to wait when its time to debug.
+    let dbg_mode: bool = true;
+
+    // This is to alternate between work and stand time.
+    let mut alternator = true;
+
+    // number of seconds of work time, 5 seconds at debug, 15 mins at performance
+    let mut seconds = if dbg_mode {
+        Duration::from_secs(5)
+    } else {
+        Duration::from_secs(900)
+    };
+
+    loop {
+        thread::sleep(seconds.clone());
+
+        // if its time to stand up, alternator should be true.
+        // if it isn't alternator should be false. That means its time to get back to work.
+        if alternator {
+            println!("Time to Stand Up!");
+        } else {
+            println!("Time to Get Back to Work!");
+        }
+
+        // plays audio every iteration. since the thread sleeps at the beginning of
+        // the loop for 'seconds' seconds, it only plays every time its either time to
+        // stand up or go back to work.
+        play_audio();
+
+        // seconds alternates between dbg -> 2 and 5 seconds, perf -> 15 seconds and 15 mins.
+        seconds = if alternator {
+            if dbg_mode {
+                Duration::from_secs(2)
+            } else {
+                Duration::from_secs(15)
+            }
+        } else {
+            if dbg_mode {
+                Duration::from_secs(5)
+            } else {
+                Duration::from_secs(900)
+            }
+        };
+
+        alternator = !alternator;
+    }
+}
+
+// function that plays the audio
+fn play_audio() {
+    let (_stream, handle) = rodio::OutputStream::try_default().unwrap();
+    let sink = rodio::Sink::try_new(&handle).unwrap();
+
+    // Since I'm running this with PATH=$PATH to run it from anywhere, I can't have this be relative
+    // Otherwise it can't find the audio file.
+    let file = std::fs::File::open(
+        "/Users/justinlee/Desktop/rust-tutorial-projects/standup_timer/assets/notifSound.mp3",
+    )
+    .unwrap();
+    sink.append(rodio::Decoder::new(BufReader::new(file)).unwrap());
+
+    // Thread sleeps until the audio finishes
+    sink.sleep_until_end();
+}
+
+/*
+use std::io::BufReader;
+use std::thread;
+use std::time::Duration;
+
 use std::io::stdin;
 
 fn main() {
@@ -122,3 +193,4 @@ fn play_audio() {
     // Thread sleeps until the audio finishes
     sink.sleep_until_end();
 }
+*/

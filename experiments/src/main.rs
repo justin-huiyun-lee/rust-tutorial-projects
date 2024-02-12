@@ -1,23 +1,22 @@
 #[derive(Debug)]
-struct Rectangle {
-    width: u32,
-    height: u32,
+struct A {
+    one: i32,
+    two: i32,
+    three: i32,
+    four: i32,
+    five: String,
 }
 
 fn main() {
-    let rect1 = Rectangle {
-        width: 30,
-        height: 50,
+    let a1 = A {
+        one: 1,
+        two: 2,
+        three: 3,
+        four: 4,
+        five: String::from("hello"),
     };
 
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        area(&rect1)
-    );
+    let a2 = A { one: 5, ..a1 };
 
-    println!("{:#?}", rect1);
-}
-
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
+    println!("{:#?}", a1);
 }

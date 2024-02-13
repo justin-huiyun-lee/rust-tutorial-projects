@@ -5,7 +5,7 @@ use std::thread;
 use std::time::Duration;
 
 // This is to change the amount of time I have to wait when its time to debug.
-const DBG_MODE: bool = true;
+const DBG_MODE: bool = false;
 
 fn main() {
     let mut timer_start_decision = String::new();

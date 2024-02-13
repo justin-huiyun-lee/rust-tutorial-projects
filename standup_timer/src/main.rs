@@ -4,19 +4,18 @@ use std::io::BufReader;
 use std::thread;
 use std::time::Duration;
 
-// This is to change the amount of time I have to wait when its time to debug.
-const DBG_MODE: bool = false;
-
 fn main() {
     let mut timer_start_decision = String::new();
     let mut add_tasks_decision = String::new();
 
+    let DBG_MODE: bool = false;
+
     //loop {}
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
-    enter_loop();
+    enter_loop(DBG_MODE);
 }
 
-fn enter_loop() {
+fn enter_loop(DBG_MODE: bool) {
     let mut seconds = if DBG_MODE {
         Duration::from_secs(5)
     } else {

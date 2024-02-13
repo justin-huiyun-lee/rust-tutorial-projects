@@ -1,5 +1,5 @@
-use std::io::BufReader;
 use std::io::stdin;
+use std::io::BufReader;
 
 use std::thread;
 use std::time::Duration;
@@ -8,13 +8,10 @@ use std::time::Duration;
 const DBG_MODE: bool = true;
 
 fn main() {
-
     let mut timer_start_decision = String::new();
     let mut add_tasks_decision = String::new();
 
-    loop {
-
-    }
+    loop {}
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
     enter_loop();
 }

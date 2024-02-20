@@ -12,15 +12,5 @@ fn main() {
     let game_active = true;
     let snake_length = 2;
     let player_direction = MoveDirection::UP;
-
-    for _i in 0..WIDTH {
-        print!("#");
-    }
-    for _i in 0..HEIGHT {
-        println!("#");
-    }
-
-    while game_active {
-
-    }
+    
 }

@@ -8,15 +8,15 @@ fn main() {
     let mut timer_start_decision = String::new();
     let mut add_tasks_decision = String::new();
 
-    let DBG_MODE: bool = false;
+    let dbg_mode: bool = false;
 
     //loop {}
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
-    enter_loop(DBG_MODE);
+    enter_loop(dbg_mode);
 }
 
-fn enter_loop(DBG_MODE: bool) {
-    let mut seconds = if DBG_MODE {
+fn enter_loop(dbg_mode: bool) {
+    let mut seconds = if dbg_mode {
         Duration::from_secs(5)
     } else {
         Duration::from_secs(900)
@@ -42,13 +42,13 @@ fn enter_loop(DBG_MODE: bool) {
 
         // seconds alternates between dbg -> 2 and 5 seconds, perf -> 15 seconds and 15 mins.
         seconds = if alternator {
-            if DBG_MODE {
+            if dbg_mode {
                 Duration::from_secs(2)
             } else {
                 Duration::from_secs(15)
             }
         } else {
-            if DBG_MODE {
+            if dbg_mode {
                 Duration::from_secs(5)
             } else {
                 Duration::from_secs(900)

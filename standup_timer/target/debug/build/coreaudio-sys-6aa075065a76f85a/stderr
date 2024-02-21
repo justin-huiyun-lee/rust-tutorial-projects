@@ -1,0 +1,4 @@
+error: 'rustfmt' is not installed for the toolchain '/opt/homebrew/Cellar/rust/1.75.0'
+note: this is a custom toolchain, which cannot use `rustup component add`
+help: if you built this toolchain from source, and used `rustup toolchain link`, then you may be able to build the component with `x.py`
+Failed to run rustfmt: Internal rustfmt error (non-fatal, continuing)

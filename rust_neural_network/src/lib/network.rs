@@ -73,7 +73,6 @@ impl Network<'_> {
 		for i in 1..=epochs {
 			if epochs < 100 || i % (epochs / 100) == 0 {
 				print!("Epoch {} of {}", i, epochs);
-
 			}
 			for j in 0..inputs.len() {
 				let outputs = self.feed_forward(inputs[j].clone());

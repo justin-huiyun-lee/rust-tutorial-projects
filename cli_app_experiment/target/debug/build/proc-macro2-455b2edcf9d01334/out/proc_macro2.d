@@ -4,4 +4,4 @@
 
 build/probe.rs:
 
-# env-dep:RUSTC_BOOTSTRAP=1
+# env-dep:RUSTC_BOOTSTRAP

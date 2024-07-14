@@ -1,9 +1,0 @@
-/Users/justinlee/Desktop/rust-tutorial-projects/standup_timer/target/debug/build/clang-sys-c205eb3ecaab71d6/build_script_build-c205eb3ecaab71d6: /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/macros.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/common.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/dynamic.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/static.rs
-
-/Users/justinlee/Desktop/rust-tutorial-projects/standup_timer/target/debug/build/clang-sys-c205eb3ecaab71d6/build_script_build-c205eb3ecaab71d6.d: /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/macros.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/common.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/dynamic.rs /Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/static.rs
-
-/Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build.rs:
-/Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/macros.rs:
-/Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/common.rs:
-/Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/dynamic.rs:
-/Users/justinlee/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clang-sys-1.7.0/build/static.rs:

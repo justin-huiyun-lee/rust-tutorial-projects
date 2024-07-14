@@ -10,7 +10,7 @@ fn main() {
 
     let dbg_mode: bool = false;
 
-    //loop {}
+    // loop {}
     // number of seconds of work time, 5 seconds at debug, 15 mins at performance
     enter_loop(dbg_mode);
 }
